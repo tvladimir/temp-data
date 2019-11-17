@@ -1,0 +1,48 @@
+<bz-main-box-logo  class="box-centered">
+  <div class="content">
+    <div class="text-desc">
+      <h3>הזינו מייל ונייד:</h3>
+    </div>
+    <div class="form-container">
+      <form class="form" [formGroup]="orderForm" (ngSubmit)="onSubmit()">
+        <mat-form-field class="">
+          <input type="email" matInput placeholder="הזינו מייל" formControlName="Email">
+          <mat-error *ngIf="orderForm?.get('Email')?.errors">
+            <span *ngIf="orderForm?.get('Email')?.hasError('required')">
+              יש להזין כתובת מייל
+            </span>
+            <span *ngIf="orderForm?.get('Email')?.hasError('b_error')">
+              כתובת מייל לא תקינה
+            </span>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field class="">
+          <input type="tel" matInput maxlength="10" placeholder="הזינו נייד" formControlName="Cellular">
+          <mat-error *ngIf="orderForm?.get('Cellular')?.errors">
+            <span *ngIf="orderForm?.get('Cellular')?.hasError('required')">
+              יש להזין מספר נייד
+            </span>
+            <span *ngIf="orderForm?.get('Cellular')?.hasError('b_error')">
+              מספר נייד לא תקין
+            </span>
+          </mat-error>
+        </mat-form-field>
+
+        <div class="checkbox-container">
+          <mat-checkbox formControlName="isSpamAccept">אני מעוניין/ת לקבל עדכונים על הטבות ומבצעים</mat-checkbox>
+        </div>
+
+
+        <div class="submit-container">
+          <button type="submit" class="btn-submit">המשך</button>
+        </div>
+        <div class="error-message" [class.show]="errorData.isError">
+          <span class="error-text">{{errorData.errorMessage}}</span>
+        </div>
+      </form>
+    </div>
+
+    <div class="footer-link-container">
+    </div>
+  </div>
+</bz-main-box-logo>

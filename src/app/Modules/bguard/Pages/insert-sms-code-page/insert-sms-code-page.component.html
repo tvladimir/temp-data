@@ -1,0 +1,39 @@
+<bz-main-box-logo class="box-centered">
+  <div class="content">
+    <div class="text-desc">
+      <h3>
+        <span class="d-block">קוד יישלח בהודעת SMS</span>
+        <span class="d-block">לטלפון {{currentBguardState.userInfo.SMSVerifiedNumber}}</span>
+      </h3>
+    </div>
+    <div class="form-container">
+      <form class="form" [formGroup]="verificationForm" (ngSubmit)="onSubmit()">
+        <mat-form-field class="">
+          <input type="tel" matInput maxlength="6" placeholder="הזינו קוד בן 6 ספרות" formControlName="OtpCode">
+          <mat-error *ngIf="verificationForm?.get('OtpCode')?.errors">
+            <span *ngIf="verificationForm?.get('OtpCode')?.hasError('required')">
+              יש להזין קוד
+            </span>
+            <span *ngIf="verificationForm?.get('OtpCode')?.hasError('b_error')">
+              קוד לא תקין
+            </span>
+            <span *ngIf="verificationForm?.get('OtpCode')?.hasError('maxlength') || verificationForm?.get('OtpCode')?.hasError('minlength')">
+              קוד לא תקין
+            </span>
+          </mat-error>
+        </mat-form-field>
+
+        <div class="submit-container">
+          <button type="submit" class="btn-submit">המשך</button>
+        </div>
+        <div class="error-message" [class.show]="errorData.isError">
+          <span class="error-text">{{errorData.errorMessage}}</span>
+        </div>
+      </form>
+    </div>
+
+    <div class="footer-link-container" *ngIf="!errorData.errorMessage">
+      <button type="button" class="resend-sms-button" (click)="sendOTP()">לא קיבלתי SMS</button>
+    </div>
+  </div>
+</bz-main-box-logo>

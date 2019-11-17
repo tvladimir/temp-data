@@ -1,0 +1,23 @@
+<div class="bguard-container">
+  <bz-bezeq-loader></bz-bezeq-loader>
+  <div class="container">
+    <router-outlet></router-outlet>
+  </div>
+</div>
+
+
+<div style="position: absolute; z-index: 100; bottom: 0; left: 0; right: 0; height: 60px; background: #fff;" *ngIf="isShowTestBar">
+  <div style="display: flex; justify-content: center; flex-wrap: wrap;">
+    <a style="display: flex; padding: 10px;" [routerLink]="['/']" routerLinkActive="router-link-active">insertId</a>
+    <a style="display: flex; padding: 10px;" [routerLink]="['/insertPhone']" routerLinkActive="router-link-active">insertPhone</a>
+    <a style="display: flex; padding: 10px;" [routerLink]="['/insertCustomerNumber']" routerLinkActive="router-link-active">insertCustomerNumber</a>
+    <a style="display: flex; padding: 10px;" [routerLink]="['/insertSmsCode']" routerLinkActive="router-link-active">insertSmsCode</a>
+    <a style="display: flex; padding: 10px;" [routerLink]="['/insertMailAndPhone']" routerLinkActive="router-link-active">insertMailAndPhone</a>
+    <a style="display: flex; padding: 10px;" [routerLink]="['/identity']" routerLinkActive="router-link-active">identity</a>
+    <a style="display: flex; padding: 10px;" [routerLink]="['/thankYou']" routerLinkActive="router-link-active">thankYou</a>
+    <a style="display: flex; padding: 10px;" [routerLink]="['/Registered']" routerLinkActive="router-link-active">Registered</a>
+    <a style="display: flex; padding: 10px;" [routerLink]="['/ResendSmsRegistered']" routerLinkActive="router-link-active">ResendSmsRegistered</a>
+    <a style="display: flex; padding: 10px;" [routerLink]="['/promotion']" routerLinkActive="router-link-active">promotion</a>
+    <a style="display: flex; padding: 10px;" [routerLink]="['/error']" routerLinkActive="router-link-active">error</a>
+  </div>
+</div>

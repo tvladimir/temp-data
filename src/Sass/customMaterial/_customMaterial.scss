@@ -1,0 +1,52 @@
+@import '~@angular/material/theming';
+
+/* Custom Colors */
+$bezeq-color-primary: #16254f;
+$bezeq-color-invalid: #f44336;
+$bezeq-color-accent: #16254f;
+/* */
+
+
+$custom-typography: mat-typography-config(
+  $font-family: 'SimplerPro',
+  $headline: mat-typography-level(32px, 48px, 700),
+  $body-1: mat-typography-level(16px, 24px, 500),
+  $input: mat-typography-level(18px, 1.125, 400)
+);
+@include mat-core($custom-typography);
+
+
+.mat-form-field-empty.mat-form-field-label {
+  color: #666666;
+}
+.mat-form-field.mat-focused .mat-form-field-label {
+  color: $bezeq-color-primary;
+}
+.mat-form-field.mat-form-field-invalid .mat-form-field-label {
+  color: $bezeq-color-invalid;
+}
+
+.mat-form-field-appearance-legacy .mat-form-field-underline {
+  background-color: $bezeq-color-primary;
+}
+
+.mat-form-field.mat-focused .mat-form-field-ripple {
+  background-color: $bezeq-color-primary;
+}
+.mat-form-field.mat-form-field-invalid .mat-form-field-ripple {
+  background-color: $bezeq-color-invalid;
+}
+
+
+// $custom-theme-primary: mat-palette($mat-grey, 900);
+// $custom-theme-accent:mat-palette($mat-pink, A200, A100, A400);
+// $custom-theme-warn: mat-palette($mat-red);
+// $custom-theme: mat-light-theme($custom-theme-primary, $custom-theme-accent, $custom-theme-warn);
+
+// @include angular-material-theme($custom-theme);
+
+
+// $custom-typography: mat-typography-config(
+//   $font-family: 'SimplerPro'
+// );
+// @include mat-core($custom-typography);

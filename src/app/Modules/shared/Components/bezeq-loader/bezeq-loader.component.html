@@ -1,0 +1,15 @@
+<div class="loader-bezeq" [ngClass]="{'no-opacity': loaderService.isNoOpacity}" aria-label="אנא המתן" role="alert" *ngIf="loaderService.isShow">
+  <div class="content">
+    <div class="text-container" *ngIf="loaderService.isMessageShow">
+      <div>
+        יש להמתין מספר רגעים עד התחלת תהליך ההתקנה.
+      </div>
+      <div>
+        חשוב! אין לסגור חלון זה עד סיום התהליך
+      </div>
+    </div>
+    <div class="img-container">
+      <img src="../../../../../assets/Images/loader.gif" aria-hidden="true" alt="">
+    </div>
+  </div>
+</div>

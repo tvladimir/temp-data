@@ -1,0 +1,14 @@
+<div class="form-container">
+    <form class="form" (ngSubmit)="onSubmit()">
+      <div class="label-text">
+          <span class="d-block">קוד יישלח בהודעת SMS</span>
+          <span class="d-block">עם קוד כניסה לטלפון {{currentBguardState?.userInfo?.SMSVerifiedNumber}}</span>
+      </div>
+      <div class="submit-container">
+        <button type="submit" class="btn-submit">שלחו SMS</button>
+      </div>
+      <div class="error-message" [class.show]="errorData.isError">
+        <span class="error-text">{{errorData.errorMessage}}</span>
+      </div>
+    </form>
+  </div>

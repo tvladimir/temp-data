@@ -1,0 +1,22 @@
+<div class="form-container">
+  <form class="form" [formGroup]="verificationForm" (ngSubmit)="onSubmit()">
+    <mat-form-field class="">
+      <input matInput type="tel" maxlength="8" placeholder="הזינו מספר לקוח" formControlName="CustomerId">
+      <mat-error *ngIf="verificationForm?.get('CustomerId')?.errors">
+        <span *ngIf="verificationForm?.get('CustomerId')?.hasError('required')">
+          יש להזין מספר לקוח
+        </span>
+        <span *ngIf="verificationForm?.get('CustomerId')?.hasError('b_error')">
+          מספר לקוח לא תקין
+        </span>
+      </mat-error>
+    </mat-form-field>
+
+    <div class="submit-container">
+      <button type="submit" class="btn-submit">המשך</button>
+    </div>
+    <div class="error-message" [class.show]="errorData.isError">
+      <span class="error-text">{{errorData.errorMessage}}</span>
+    </div>
+  </form>
+</div>

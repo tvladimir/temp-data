@@ -1,0 +1,23 @@
+<bz-main-box-logo>
+  <div class="content">
+    <div class="text-desc">
+      <h3>
+        <ng-content select="[text-desc]"></ng-content>
+      </h3>
+    </div>
+    <div class="tabs-container">
+      <mat-tab-group mat-stretch-tabs animationDuration="0ms" (selectedTabChange)="selectedTabChange($event)">
+        <mat-tab [label]="rightTabLabel">
+          <ng-template matTabContent>
+            <ng-content select="[right-tab-content]"></ng-content>
+          </ng-template>
+        </mat-tab>
+        <mat-tab [label]="leftTabLabel">
+          <ng-template matTabContent>
+            <ng-content select="[left-tab-content]"></ng-content>
+          </ng-template>
+        </mat-tab>
+      </mat-tab-group>
+    </div>
+  </div>
+</bz-main-box-logo>

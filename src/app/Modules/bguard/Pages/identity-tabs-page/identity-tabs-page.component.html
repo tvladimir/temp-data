@@ -1,0 +1,63 @@
+
+<ng-container *ngIf="verificationForm">
+
+  <!---------------------------CUSTOMERID AND SMS--------------------------->
+  <ng-container *ngIf="currentBguardState.userInfo.ValidateByCustomerIdAllowed && currentBguardState.userInfo.SMSVerifiedNumber">
+  <!-- <ng-container> -->
+    <bz-main-box-logo-tabs class="box-centered" [rightTabLabel]="CUSTOMER_NUMBER_TAB_HEADER_LABEL" [leftTabLabel]="SMS_TAB_HEADER_LABEL" (mhSelectedTabChange)="selectedTabChange($event)">
+      <ng-container text-desc>
+        <span class="d-block">להמשך התהליך יש לבחור את אחד</span>
+        <span class="d-block">מאמצעי הזיהוי הבאים:</span>
+      </ng-container>
+      <ng-container right-tab-content>
+        <bz-insert-customer-id [verificationForm]="verificationForm" (bzOnSubmit)="onSubmit()" [errorData]="errorData"></bz-insert-customer-id>
+      </ng-container>
+      <ng-container left-tab-content>
+        <bz-send-sms-identity-code [currentBguardState]="currentBguardState"
+                                    (bzOnSubmit)="onSubmit()"
+                                    [errorData]="errorData"></bz-send-sms-identity-code>
+      </ng-container>
+    </bz-main-box-logo-tabs>
+  </ng-container>
+
+
+  <!---------------------------PAYMENT NUMBER AND SMS--------------------------->
+  <ng-container *ngIf="(currentBguardState.userInfo.ValidateByBankAllowed || currentBguardState.userInfo.ValidateByCreditAllowed) && currentBguardState.userInfo.SMSVerifiedNumber">
+  <!-- <ng-container> -->
+    <bz-main-box-logo-tabs class="box-centered" [rightTabLabel]="PAYMNET_HEADER_LABEL" [leftTabLabel]="SMS_TAB_HEADER_LABEL" (mhSelectedTabChange)="selectedTabChange($event)">
+      <ng-container text-desc>
+        <span class="d-block">להמשך התהליך יש לבחור את אחד</span>
+        <span class="d-block">מאמצעי הזיהוי הבאים:</span>
+      </ng-container>
+      <ng-container right-tab-content>
+        <bz-insert-payment-numbers [verificationForm]="verificationForm"
+                                    (bzOnSubmit)="onSubmit()"
+                                    [errorData]="errorData"></bz-insert-payment-numbers>
+      </ng-container>
+      <ng-container left-tab-content>
+        <bz-send-sms-identity-code [currentBguardState]="currentBguardState"
+                                    (bzOnSubmit)="onSubmit()"
+                                    [errorData]="errorData"></bz-send-sms-identity-code>
+      </ng-container>
+    </bz-main-box-logo-tabs>
+  </ng-container>
+
+
+  <!---------------------------CUSTOMERID AND PAYMENT NUMBER--------------------------->
+  <ng-container *ngIf="currentBguardState.userInfo.ValidateByCustomerIdAllowed && (currentBguardState.userInfo.ValidateByBankAllowed || currentBguardState.userInfo.ValidateByCreditAllowed)">
+  <!-- <ng-container> -->
+    <bz-main-box-logo-tabs class="box-centered" [rightTabLabel]="PAYMNET_HEADER_LABEL" [leftTabLabel]="CUSTOMER_NUMBER_TAB_HEADER_LABEL" (mhSelectedTabChange)="selectedTabChange($event)">
+      <ng-container text-desc>
+        <span class="d-block">להמשך התהליך יש לבחור את אחד</span>
+        <span class="d-block">מאמצעי הזיהוי הבאים:</span>
+      </ng-container>
+      <ng-container right-tab-content>
+        <bz-insert-payment-numbers [verificationForm]="verificationForm" (bzOnSubmit)="onSubmit()" [errorData]="errorData"></bz-insert-payment-numbers>
+      </ng-container>
+      <ng-container left-tab-content>
+        <bz-insert-customer-id [verificationForm]="verificationForm" (bzOnSubmit)="onSubmit()" [errorData]="errorData"></bz-insert-customer-id>
+      </ng-container>
+    </bz-main-box-logo-tabs>
+  </ng-container>
+
+</ng-container>

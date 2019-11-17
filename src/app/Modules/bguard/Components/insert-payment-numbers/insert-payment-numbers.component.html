@@ -1,0 +1,25 @@
+<div class="form-container">
+  <form class="form" [formGroup]="verificationForm" (ngSubmit)="onSubmit()">
+    <mat-form-field class="">
+      <input matInput maxlength="4" type="tel" placeholder="4 ספרות אחרונות של כ.א / מספר חשבון" formControlName="CreditCard4DigitsOrBankAcount">
+      <mat-error *ngIf="verificationForm?.get('CreditCard4DigitsOrBankAcount')?.errors">
+        <span *ngIf="verificationForm?.get('CreditCard4DigitsOrBankAcount')?.hasError('required')">
+          יש להזין 4 ספרות אחרנות
+        </span>
+        <span *ngIf="verificationForm?.get('CreditCard4DigitsOrBankAcount')?.hasError('b_error')">
+          4 ספרות אחרנות לא תקינות
+        </span>
+        <span *ngIf="verificationForm?.get('CreditCard4DigitsOrBankAcount')?.hasError('maxlength') || verificationForm?.get('CreditCard4DigitsOrBankAcount')?.hasError('minlength')">
+            4 ספרות אחרנות לא תקינות
+        </span>
+      </mat-error>
+    </mat-form-field>
+
+    <div class="submit-container">
+      <button type="submit" class="btn-submit">המשך</button>
+    </div>
+    <div class="error-message" [class.show]="errorData.isError">
+      <span class="error-text">{{errorData.errorMessage}}</span>
+    </div>
+  </form>
+</div>

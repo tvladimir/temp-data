@@ -1,0 +1,37 @@
+<bz-main-box-logo class="box-centered">
+  <div class="content">
+    <div class="text-desc">
+      <h3>
+        <span class="d-block">קיימים מספר קווים על מספר תעודת</span>
+        <span class="d-block">הזהות שהזנתם. הזינו את מספר הקו</span>
+        <span class="d-block">עליו תרצו לחייב את השירות</span>
+      </h3>
+    </div>
+    <div class="form-container">
+      <form class="form" [formGroup]="selectPhoneNumberForm" (ngSubmit)="onSubmit()">
+        <mat-form-field class="">
+          <input matInput type="tel" maxlength="11" placeholder="הזינו מספר קו" formControlName="PhoneNumber">
+          <mat-error *ngIf="selectPhoneNumberForm?.get('PhoneNumber')?.errors">
+            <span *ngIf="selectPhoneNumberForm?.get('PhoneNumber')?.hasError('required')">
+              יש להזין מספר קו
+            </span>
+            <span *ngIf="selectPhoneNumberForm?.get('PhoneNumber')?.hasError('b_error')">
+              מספר קו לא תקין
+            </span>
+          </mat-error>
+        </mat-form-field>
+
+        <div class="submit-container">
+          <button type="submit" class="btn-submit">המשך</button>
+        </div>
+        <div class="error-message" [class.show]="errorData.isError">
+          <span class="error-text">{{errorData.errorMessage}}</span>
+        </div>
+      </form>
+    </div>
+
+    <!-- <div class="footer-link-container">
+      <a href="https://www.bezeq.co.il/" title="לא קיבלתי SMS">לא קיבלתי SMS</a>
+    </div> -->
+  </div>
+</bz-main-box-logo>

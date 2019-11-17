@@ -1,0 +1,125 @@
+@import 'customMaterial/customMaterial';
+@import 'abstracts/mixins';
+
+.box-centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  @include respond(xs) {
+    max-width: 480px;
+    margin: 0 auto;
+    width: 100%;
+    position: relative;
+    transform: none;
+    left: auto;
+    top: auto;
+    padding: 0;
+    box-shadow: none;
+  }
+}
+
+.content {
+  margin-top: 70px;
+  padding: 0 14px;
+  text-align: center;
+
+  @include respond(xs) {
+    margin-top: 2rem;
+  }
+}
+
+.text-desc {
+
+  h3 {
+    font-size: 18px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: center;
+    color: #16254f;
+  }
+}
+
+.form-container {
+  margin-top: 26.5px;
+
+  @include respond(xs) {
+    margin-top: 50px;
+  }
+}
+
+.submit-container {
+  margin-top: 60px;
+
+  @include respond(xs) {
+    margin-top: 120px;
+  }
+}
+
+.btn-submit {
+  width: 160px;
+  height: 48px;
+  background-color: #16254f;
+  font-size: 17.3px;
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 1px;
+  text-align: center;
+  color: #ffffff;
+  border-radius: 60px;
+  padding: 0;
+  border: none;
+
+  @include respond(xs) {
+    width: 140px;
+    height: 40px;
+  }
+}
+
+.error-message {
+  position: relative;
+  left: 0;
+  right: 0;
+  text-align: center;
+  min-height: 2.5rem;
+
+  .error-text {
+    position: relative;
+    display: block;
+    text-align: center;
+    opacity: 0;
+    transition: all .5s;
+    transform: translate(0, -20px);
+  }
+
+  &.show {
+    .error-text {
+      transform: translate(0, 0px);
+      opacity: 1;
+    }
+  }
+}
+
+.footer-link-container {
+  margin-top: 0px;
+  text-align: center;
+  line-height: 1;
+
+  a {
+    font-size: 14px;
+    font-weight: bold;
+    color: #3c68e1;
+    text-decoration: underline;
+  }
+}
+
+mat-form-field {
+  width: 100%;
+}
+

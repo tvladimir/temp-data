@@ -1,0 +1,19 @@
+.loader-bezeq.no-opacity {
+  background-color: rgba(255,255,255,1);
+  opacity: 1;
+}
+
+.content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.text-container {
+    font-size: 1.5em;
+    font-weight: bold;
+    line-height: 1.14;
+    color: #1e284b;
+    padding-bottom: 2em;
+}
